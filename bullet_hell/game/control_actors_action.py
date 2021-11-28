@@ -1,5 +1,5 @@
-from game.constants import PADDLE_Y
-from game.constants import MAX_X, PADDLE_WIDTH
+from game.constants import PLAYER_Y
+from game.constants import MAX_X, PLAYER_WIDTH
 from game import input_service
 from game import constants
 from game.action import Action
@@ -21,10 +21,10 @@ class ControlActorsAction(Action):
     # Also has code to prevent the paddle from moving off screen, but it doesn't work.
     def execute(self, cast):
         direction = self.input_service.get_direction()
-        paddle = cast["paddle"][0]
-        if paddle._position.get_x() != MAX_X - PADDLE_WIDTH and paddle._position.get_x() != 0:
-            paddle.set_velocity(direction.scale(constants.PADDLE_SPEED))
-        elif paddle._position.get_x() == MAX_X - PADDLE_WIDTH:
-            paddle.set_position(Point(MAX_X - PADDLE_WIDTH, PADDLE_Y))
-        elif paddle._position.get_x() == 0:
-            paddle.set_position(Point(0, PADDLE_Y))
+        player = cast["player_ship"][0]
+        if player._position.get_x() != MAX_X - PLAYER_WIDTH and player._position.get_x() != 0:
+            player.set_velocity(direction.scale(constants.PLAYER_SPEED))
+        elif player._position.get_x() == MAX_X - PLAYER_WIDTH:
+            player.set_position(Point(MAX_X - PLAYER_WIDTH, PLAYER_Y))
+        elif player._position.get_x() == 0:
+            player.set_position(Point(0, PLAYER_Y))

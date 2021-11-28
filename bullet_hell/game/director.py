@@ -35,9 +35,9 @@ class Director:
 
             # TODO: Add some logic like the following to handle game over conditions
             
-            if len(self._cast["balls"]) == 0:
+            #if len(self._cast["balls"]) == 0:
                 # Game over
-                self._keep_playing = False
+            #    self._keep_playing = False
 
             if raylibpy.window_should_close():
                 self._keep_playing = False

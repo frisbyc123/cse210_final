@@ -8,9 +8,8 @@ DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_BRICK = os.path.join(os.getcwd(), "./batter/assets/brick-3.png")
-IMAGE_PADDLE = os.path.join(os.getcwd(), "./batter/assets/bat.png")
-IMAGE_BALL = os.path.join(os.getcwd(), "./batter/assets/ball.png")
+IMAGE_PLAYER_SHIP = os.path.join(os.getcwd(), "./bullet_hell/assets/player_filler.png")
+IMAGE_BOSS = os.path.join(os.getcwd(), "./bullet_hell/assets/boss_filler.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./batter/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./batter/assets/boing.wav")
@@ -22,22 +21,17 @@ BALL_Y = MAX_Y - 125
 BALL_DX = 8
 BALL_DY = BALL_DX * -1
 
-PADDLE_X = MAX_X / 2
-PADDLE_Y = MAX_Y - 25
+PLAYER_X = MAX_X / 2
+PLAYER_Y = MAX_Y - 25
 
-BRICK_WIDTH = 48
-BRICK_HEIGHT = 24
+PLAYER_WIDTH = 50 
+PLAYER_HEIGHT = 50
 
-BRICK_SPACE = 5
+BOSS_X = MAX_X / 2
+BOSS_Y = MAX_Y / 10
 
-PADDLE_SPEED = 15
+BOSS_WIDTH = 700
+BOSS_HEIGHT = 70
 
-PADDLE_WIDTH = 96
-PADDLE_HEIGHT = 24
-
-BALL_WIDTH = 24
-BALL_HEIGHT = 24
-
-BRICKS_WIDE = 16
-BRICKS_TALL = 7
+PLAYER_SPEED = 10
 

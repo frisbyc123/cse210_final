@@ -1,4 +1,5 @@
 import os
+from game.constants import BULLET_HEIGHT, BULLET_WIDTH, IMAGE_BULLET, MAX_X, MAX_Y
 from game.constants import BOSS_HEIGHT, BOSS_WIDTH, BOSS_X, BOSS_Y
 from game.constants import IMAGE_BOSS, PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_X, PLAYER_Y
 
@@ -21,6 +22,7 @@ from game.output_service import OutputService
 #from game.ball import Ball
 from game.player import Player
 from game.boss import Boss
+from game.bullet import Bullet
 from game.control_actors_action import ControlActorsAction
 #from game.handle_collisions_action import HandleCollisionsAction
 #from game.handle_off_screen_action import HandleOffScreenAction
@@ -55,15 +57,15 @@ def main():
     cast["bullet"] = []
     # Create a bullets here and add it to the list
     bullets = []
-    #ball = Ball()
-    #ball.set_image(IMAGE_BALL)
-    #ball.set_width(BALL_WIDTH)
-    #ball.set_height(BALL_HEIGHT)
-    #x = MAX_X / 2
-    #y = MAX_Y / 2
-    #position = Point(x, y)
-    #ball.set_position(position)
-    #balls.append(ball)
+    bullet = Bullet()
+    bullet.set_image(IMAGE_BULLET)
+    bullet.set_width(BULLET_WIDTH)
+    bullet.set_height(BULLET_HEIGHT)
+    x = MAX_X / 2
+    y = MAX_Y / 2
+    position = Point(x, y)
+    bullet.set_position(position)
+    bullets.append(bullet)
     cast["bullet"] = bullets
     
     cast["player_ship"] = []

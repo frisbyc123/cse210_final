@@ -57,6 +57,7 @@ def main():
     cast["bullet"] = []
     # Create a bullets here and add it to the list
     bullets = []
+    
     bullet = Bullet()
     bullet.set_image(IMAGE_BULLET)
     bullet.set_width(BULLET_WIDTH)

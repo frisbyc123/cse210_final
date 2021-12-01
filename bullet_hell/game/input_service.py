@@ -46,9 +46,12 @@ class InputService:
 
         direction = Point(dx, dy)
         return direction
+        
     def get_fire(self):
-        if self.is_x_pressed(self):
-            return True
+        fire = 0
+        if self.is_x_pressed():
+            fire = 1
+            return fire
 
     def is_left_pressed(self):
         return raylibpy.is_key_down(raylibpy.KEY_LEFT)

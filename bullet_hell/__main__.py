@@ -1,9 +1,10 @@
 import os
+from game.spawn_bullets_action import SpawnBulletsAction
 from game.constants import BULLET_HEIGHT, BULLET_WIDTH, IMAGE_BULLET, MAX_X, MAX_Y
 from game.constants import BOSS_HEIGHT, BOSS_WIDTH, BOSS_X, BOSS_Y
 from game.constants import IMAGE_BOSS, PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_X, PLAYER_Y
-
 from game.constants import IMAGE_PLAYER_SHIP
+
 os.environ['RAYLIB_BIN_PATH'] = "."
 
 import random
@@ -48,25 +49,9 @@ def main():
     enemies = []   
     cast["enemy"] = enemies
 
-    #for brick in cast["bricks"]:
-    #    print(f"x position {brick._position.get_x()}")
-    #    print(f"y position {brick._position.get_y()}")
-
     cast["bullet"] = []
-    # Create a bullets here and add it to the list
-    bullets = []
-    #if InputService.get_fire():
-    bullet = Bullet()
-    bullet.set_image(IMAGE_BULLET)
-    bullet.set_width(BULLET_WIDTH)
-    bullet.set_height(BULLET_HEIGHT)
-    x = MAX_X / 2
-    y = MAX_Y / 2
-    position = Point(x, y)
-    bullet.set_position(position)
-    bullets.append(bullet)
-    print("made new bullet")
-    cast["bullet"] = bullets
+    # Create bullets here and add it to the list
+ #   cast["bullet"] = SpawnBulletsAction.fire(cast)
     
     cast["player_ship"] = []
     # TODO: Create a player ship here and add it to the list
@@ -94,12 +79,13 @@ def main():
     #handle_off_screen_action = HandleOffScreenAction()
     draw_actors_action = DrawActorsAction(output_service)
     control_actors_action = ControlActorsAction(input_service)
+    spawn_bullets_action = SpawnBulletsAction(input_service)
     #handle_collisions_action = HandleCollisionsAction(physics_service)
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action]#, handle_off_screen_action, handle_collisions_action]
+    script["update"] = [move_actors_action, spawn_bullets_action]#, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
 

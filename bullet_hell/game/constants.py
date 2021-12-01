@@ -19,17 +19,20 @@ SOUND_OVER = os.path.join(os.getcwd(), "./batter/assets/over.wav")
 BALL_DX = 8
 BALL_DY = BALL_DX * -1
 
+# Player constants
 PLAYER_X = MAX_X / 2
 PLAYER_Y = MAX_Y - 25
 PLAYER_WIDTH = 50 
 PLAYER_HEIGHT = 50
 PLAYER_SPEED = 5 
 
+# Boss constants
 BOSS_WIDTH = 700
 BOSS_HEIGHT = 70
 BOSS_X = MAX_X / 2 - BOSS_WIDTH / 2
 BOSS_Y = MAX_Y / 10
 
+# Bullet constants
 BULLET_WIDTH = 5
 BULLET_HEIGHT = 5
 BULLET_SPEED = 10

@@ -17,11 +17,10 @@ class ControlActorsAction(Action):
 
         self.input_service = input_service
 
-    # Changes the paddle's velocity based on what keyboard input we are receiving.
-    # Also has code to prevent the paddle from moving off screen, but it doesn't work.
     def execute(self, cast):
         direction = self.input_service.get_direction()
         player = cast["player_ship"][0]
+        fire = self.input_service.get_fire()
         if player._position.get_x() != MAX_X - PLAYER_WIDTH and player._position.get_x() != 0:
             player.set_velocity(direction.scale(constants.PLAYER_SPEED))
         elif player._position.get_x() == MAX_X - PLAYER_WIDTH:

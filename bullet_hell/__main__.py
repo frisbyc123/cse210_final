@@ -18,8 +18,6 @@ from game.output_service import OutputService
 #from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
-#from game.brick import Brick
-#from game.ball import Ball
 from game.player import Player
 from game.boss import Boss
 from game.bullet import Bullet
@@ -57,7 +55,7 @@ def main():
     cast["bullet"] = []
     # Create a bullets here and add it to the list
     bullets = []
-    
+    #if InputService.get_fire():
     bullet = Bullet()
     bullet.set_image(IMAGE_BULLET)
     bullet.set_width(BULLET_WIDTH)
@@ -67,6 +65,7 @@ def main():
     position = Point(x, y)
     bullet.set_position(position)
     bullets.append(bullet)
+    print("made new bullet")
     cast["bullet"] = bullets
     
     cast["player_ship"] = []

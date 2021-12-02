@@ -30,6 +30,7 @@ class Actor:
         self._height = 0
         self._image = ""
         self._type = ""
+        self._fire = 0
 
     def get_width(self):
         return self._width
@@ -132,4 +133,4 @@ class Actor:
 
     def get_type(self):
         return self._type
-
+    

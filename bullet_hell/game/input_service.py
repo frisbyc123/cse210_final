@@ -1,3 +1,5 @@
+import os
+os.environ['RAYLIB_BIN_PATH'] = "."
 import sys
 from game.point import Point
 import raylibpy
@@ -48,10 +50,9 @@ class InputService:
         return direction
         
     def get_fire(self):
-        fire = 0
         if self.is_x_pressed():
-            fire = 1
-            return fire
+            print("Button Pressed")
+            return True, "player"
 
     def is_left_pressed(self):
         return raylibpy.is_key_down(raylibpy.KEY_LEFT)

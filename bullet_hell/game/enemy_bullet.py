@@ -1,7 +1,7 @@
 from game.actor import Actor
 from game.point import Point
 
-class Bullet(Actor):
+class EnemyBullet(Actor):
     """
     Instance of Actor.  Stores the actor type as "bullet"
     """

@@ -1,5 +1,7 @@
 import os
+from game import spawn_boss_bullets_action
 from game.spawn_bullets_action import SpawnBulletsAction
+from game.spawn_boss_bullets_action import SpawnBossBulletsAction
 from game.constants import BULLET_HEIGHT, BULLET_WIDTH, IMAGE_BULLET, MAX_X, MAX_Y
 from game.constants import BOSS_HEIGHT, BOSS_WIDTH, BOSS_X, BOSS_Y
 from game.constants import IMAGE_BOSS, PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_X, PLAYER_Y
@@ -53,7 +55,7 @@ def main():
 
     cast["bullet"] = []
 
-    cast["enemy_bullet"] = []
+    cast["boss_bullet"] = []
     
     cast["player_ship"] = []
     # TODO: Create a player ship here and add it to the list
@@ -83,12 +85,13 @@ def main():
     control_actors_action = ControlActorsAction(input_service)
     spawn_bullets_action = SpawnBulletsAction()
     frame_counter = FrameCounter()
+    spawn_boss_bullets_action = SpawnBossBulletsAction()
     #handle_collisions_action = HandleCollisionsAction(physics_service)
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, spawn_bullets_action, frame_counter]#, handle_off_screen_action, handle_collisions_action]
+    script["update"] = [move_actors_action, spawn_bullets_action, frame_counter, spawn_boss_bullets_action]#, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
 

@@ -1,10 +1,12 @@
+from game.constants import IMAGE_ENEMY_BULLET
+from game.constants import BOSS_WIDTH, BOSS_HEIGHT
 from game import frame_counter
 from game.constants import PLAYER_WIDTH
 from game import input_service
 from game import constants
 from game.action import Action
 from game.point import Point
-from game.bullet import Bullet
+from game.enemy_bullet import EnemyBullet
 from game.constants import IMAGE_BULLET, BULLET_HEIGHT, BULLET_WIDTH, MAX_X, MAX_Y
 from game.input_service import InputService
 from game.player import Player
@@ -12,36 +14,37 @@ from game.frame_counter import FrameCounter
 
 
 
-class SpawnEnemyBulletsAction(Action):
+class SpawnBossBulletsAction(Action):
     
     def __init__(self):
         super().__init__()
-        self.bullets = []
+        self.boss_bullets = []
         self.frame_counter = FrameCounter()
         self.frame = 0
         self.fire_rate = 5
 
     def execute(self, cast):
         #self.input_service = InputService()
-        self.player = cast["boss"][0]
-        self.fire = self.input_service.get_fire()
+        self.boss = cast["boss"][0]
+        self.fire = 1
         self.frame = self.frame_counter.execute(cast)
-       # print(f"Frame in SpawnBullets: {self.frame}")
         
         if self.fire:
             if self.frame % self.fire_rate == 0:
-                bullet = Bullet()
-                bullet.set_image(IMAGE_BULLET)
+                bullet = EnemyBullet()
+                bullet.set_image(IMAGE_ENEMY_BULLET)
                 bullet.set_width(BULLET_WIDTH)
                 bullet.set_height(BULLET_HEIGHT)
-                self.x = self.player._position.get_x() + (PLAYER_WIDTH / 2)
-                print(f"x = {self.x}")
-                self.y = self.player._position.get_y()
-                print(f"y = {self.y}")
+                #self.x = self.boss._position.get_x() + (BOSS_WIDTH / 2)
+                #print(f"boss x = {self.x}")
+                #self.y = self.boss._position.get_y() + BOSS_HEIGHT
+                #print(f"boss y = {self.y}")
+                self.x = MAX_X / 2
+                self.y = MAX_Y / 2
                 position = bullet._position = Point(self.x, self.y)
                 bullet.set_position(position)
-                self.bullets.append(bullet)
+                self.boss_bullets.append(bullet)
                 print("made new bullet")
-                num_bullets = len(self.bullets)
+                num_bullets = len(self.boss_bullets)
                 print(f"Number of bullets {num_bullets}")
-                cast["bullets"] = self.bullets
+                cast["boss_bullets"] = self.boss_bullets

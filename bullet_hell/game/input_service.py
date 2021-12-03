@@ -51,7 +51,6 @@ class InputService:
         
     def get_fire(self):
         if self.is_x_pressed():
-            print("Button Pressed")
             return True, "player"
 
     def is_left_pressed(self):

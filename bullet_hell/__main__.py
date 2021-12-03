@@ -79,7 +79,7 @@ def main():
     #handle_off_screen_action = HandleOffScreenAction()
     draw_actors_action = DrawActorsAction(output_service)
     control_actors_action = ControlActorsAction(input_service)
-    spawn_bullets_action = SpawnBulletsAction(input_service)
+    spawn_bullets_action = SpawnBulletsAction()
     #handle_collisions_action = HandleCollisionsAction(physics_service)
 
     # TODO: Create additional actions here and add them to the script

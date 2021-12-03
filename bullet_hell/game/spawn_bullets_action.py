@@ -1,3 +1,4 @@
+from game.constants import PLAYER_WIDTH
 from game import input_service
 from game import constants
 from game.action import Action
@@ -10,14 +11,13 @@ from game.player import Player
 
 class SpawnBulletsAction(Action):
     
-    def __init__(self, input_service):
+    def __init__(self):
         super().__init__()
         self.bullets = []
-        #self.input_service = input_service
 
     def execute(self, cast):
         self.input_service = InputService()
-        self.player = Player()
+        self.player = cast["player_ship"][0]
         self.fire = self.input_service.get_fire()
         
         if self.fire:
@@ -25,11 +25,11 @@ class SpawnBulletsAction(Action):
             bullet.set_image(IMAGE_BULLET)
             bullet.set_width(BULLET_WIDTH)
             bullet.set_height(BULLET_HEIGHT)
-            self.x = self.player._position.get_x()
+            self.x = self.player._position.get_x() + (PLAYER_WIDTH / 2)
             print(f"x = {self.x}")
             self.y = self.player._position.get_y()
             print(f"y = {self.y}")
-            position = Point(self.x, self.y)
+            position = bullet._position = Point(self.x, self.y)
             bullet.set_position(position)
             self.bullets.append(bullet)
             print("made new bullet")

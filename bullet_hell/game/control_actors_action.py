@@ -16,7 +16,7 @@ class ControlActorsAction(Action):
     def __init__(self, input_service):
         super().__init__()
 
-        self.spawn_bullet = SpawnBulletsAction(input_service)
+        self.spawn_bullet = SpawnBulletsAction()
         self.input_service = input_service
 
     def execute(self, cast):

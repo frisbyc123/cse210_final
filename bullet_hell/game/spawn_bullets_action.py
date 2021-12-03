@@ -10,8 +10,6 @@ from game.input_service import InputService
 from game.player import Player
 from game.frame_counter import FrameCounter
 
-
-
 class SpawnBulletsAction(Action):
     
     def __init__(self):

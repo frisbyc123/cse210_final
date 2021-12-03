@@ -1,3 +1,4 @@
+from game.constants import IMAGE_BULLET
 from game.constants import IMAGE_ENEMY_BULLET
 from game.constants import BOSS_WIDTH, BOSS_HEIGHT
 from game import frame_counter
@@ -7,12 +8,10 @@ from game import constants
 from game.action import Action
 from game.point import Point
 from game.enemy_bullet import EnemyBullet
-from game.constants import IMAGE_BULLET, BULLET_HEIGHT, BULLET_WIDTH, MAX_X, MAX_Y
+from game.constants import BULLET_HEIGHT, BULLET_WIDTH, MAX_X, MAX_Y
 from game.input_service import InputService
 from game.player import Player
 from game.frame_counter import FrameCounter
-
-
 
 class SpawnBossBulletsAction(Action):
     
@@ -28,11 +27,12 @@ class SpawnBossBulletsAction(Action):
         self.boss = cast["boss"][0]
         self.fire = 1
         self.frame = self.frame_counter.execute(cast)
+        print(f"frame count: {self.frame}")
         
         if self.fire:
             if self.frame % self.fire_rate == 0:
                 bullet = EnemyBullet()
-                bullet.set_image(IMAGE_ENEMY_BULLET)
+                bullet.set_image(IMAGE_BULLET)
                 bullet.set_width(BULLET_WIDTH)
                 bullet.set_height(BULLET_HEIGHT)
                 #self.x = self.boss._position.get_x() + (BOSS_WIDTH / 2)
@@ -46,5 +46,5 @@ class SpawnBossBulletsAction(Action):
                 self.boss_bullets.append(bullet)
                 print("made new bullet")
                 num_bullets = len(self.boss_bullets)
-                print(f"Number of bullets {num_bullets}")
+                print(f"Number of boss bullets {num_bullets}")
                 cast["boss_bullets"] = self.boss_bullets

@@ -9,5 +9,5 @@ class Bullet(Actor):
     # Initialization *
     def __init__(self):
         super().__init__()
-        self._type = "player_bullet"
-        self._velocity = Point(0, -10)
+        self._type = "enemy_bullet"
+        self._velocity = Point(0, 10)

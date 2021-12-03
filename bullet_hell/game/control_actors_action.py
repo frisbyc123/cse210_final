@@ -24,8 +24,8 @@ class ControlActorsAction(Action):
         player = cast["player_ship"][0]
        
         fire = self.input_service.get_fire()
-        if fire:
-            print("Fired")
+        #if fire:
+        #    print("Fired")
             
 
         player.set_velocity(direction.scale(constants.PLAYER_SPEED))

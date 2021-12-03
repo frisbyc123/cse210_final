@@ -12,18 +12,18 @@ from game.frame_counter import FrameCounter
 
 
 
-class SpawnBulletsAction(Action):
+class SpawnEnemyBulletsAction(Action):
     
     def __init__(self):
         super().__init__()
         self.bullets = []
         self.frame_counter = FrameCounter()
         self.frame = 0
-        self.fire_rate = 10
+        self.fire_rate = 5
 
     def execute(self, cast):
-        self.input_service = InputService()
-        self.player = cast["player_ship"][0]
+        #self.input_service = InputService()
+        self.player = cast["boss"][0]
         self.fire = self.input_service.get_fire()
         self.frame = self.frame_counter.execute(cast)
        # print(f"Frame in SpawnBullets: {self.frame}")

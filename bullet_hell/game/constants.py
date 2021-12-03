@@ -11,6 +11,7 @@ DEFAULT_TEXT_OFFSET = 4
 IMAGE_PLAYER_SHIP = os.path.join(os.getcwd(), "./bullet_hell/assets/player_filler.png")
 IMAGE_BOSS = os.path.join(os.getcwd(), "./bullet_hell/assets/boss_filler.png")
 IMAGE_BULLET = os.path.join(os.getcwd(), "./bullet_hell/assets/bullet_filler.png")
+IMAGE_ENEMY_BULLET = os.path.join(os.getcwd(), "./bullet_hell/assests/enemy_bullet_filler.png")
 
 SOUND_START = os.path.join(os.getcwd(), "./batter/assets/start.wav")
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./batter/assets/boing.wav")

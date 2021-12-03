@@ -45,12 +45,15 @@ def main():
     bosses.append(boss)
     cast["boss"] = bosses
 
+
     cast["enemy"] = []
     # Create enemies here and add them to the list
     enemies = []   
     cast["enemy"] = enemies
 
     cast["bullet"] = []
+
+    cast["enemy_bullet"] = []
     
     cast["player_ship"] = []
     # TODO: Create a player ship here and add it to the list
@@ -87,6 +90,9 @@ def main():
     script["input"] = [control_actors_action]
     script["update"] = [move_actors_action, spawn_bullets_action, frame_counter]#, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
+
+
+
 
 
 

@@ -94,11 +94,6 @@ def main():
     script["update"] = [move_actors_action, spawn_bullets_action, frame_counter, spawn_boss_bullets_action]#, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
 
-
-
-
-
-
     # Start the game
     output_service.open_window("Bullet Niflheim")
     #audio_service.start_audio()

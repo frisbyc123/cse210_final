@@ -35,12 +35,12 @@ class SpawnBossBulletsAction(Action):
                 bullet.set_image(IMAGE_BULLET)
                 bullet.set_width(BULLET_WIDTH)
                 bullet.set_height(BULLET_HEIGHT)
-                #self.x = self.boss._position.get_x() + (BOSS_WIDTH / 2)
-                #print(f"boss x = {self.x}")
-                #self.y = self.boss._position.get_y() + BOSS_HEIGHT
-                #print(f"boss y = {self.y}")
-                self.x = MAX_X / 2
-                self.y = MAX_Y / 2
+                self.x = self.boss._position.get_x() + (BOSS_WIDTH / 2)
+                print(f"boss x = {self.x}")
+                self.y = self.boss._position.get_y() + BOSS_HEIGHT
+                print(f"boss y = {self.y}")
+                #self.x = MAX_X / 2
+                #self.y = MAX_Y / 2
                 position = bullet._position = Point(self.x, self.y)
                 bullet.set_position(position)
                 self.boss_bullets.append(bullet)

@@ -73,5 +73,5 @@ class SpawnBossBulletsAction(Action):
                 self.boss_bullets.append(bullet)
                 
                 num_bullets = len(self.boss_bullets)
-                print(f"Number of boss bullets {num_bullets}")
+                #print(f"Number of boss bullets {num_bullets}")
                 cast["boss_bullets"] = self.boss_bullets

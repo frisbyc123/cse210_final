@@ -22,23 +22,19 @@ class HandleCollisionsAction(Action):
     # Then checks if the ball has collided with a brick.  If it does, it deletes the brick and
     # bounces the ball back
     def execute(self, cast):
-        """
-        ball = cast["balls"][0]
-        paddle = cast["paddle"][0]
-        bricks = cast["bricks"]
-        
-        if self._physics_service.is_collision(ball, paddle):
-            self.x_velocity = ball._velocity.get_x()
-            self.y_velocity = ball._velocity.get_y() * -1
-            ball.set_velocity(Point(self.x_velocity, self.y_velocity))
-            self.audio_service.play_sound(SOUND_BOUNCE)
+        player = cast["player_ship"][0]
+        boss = cast["boss"][0]
+        player_bullets = cast["bullet"]
+        boss_bullets = cast["boss_bullet"]
 
-        for brick in bricks:
-            if self._physics_service.is_collision(ball, brick):
-                self.x_velocity = ball._velocity.get_x()
-                self.y_velocity = ball._velocity.get_y() * -1
-                ball.set_velocity(Point(self.x_velocity, self.y_velocity))
-                self.audio_service.play_sound(SOUND_BOUNCE)
-                cast["bricks"].remove(brick)
-         """
+        for bullet in boss_bullets:
+            if self._physics_service.is_collision(bullet, player):
+                player._health -= 10
+                print(f"Player hit!, Player Health: {player._health}")
+                boss_bullets.remove(bullet)
 
+        for bullet in player_bullets:
+            if self._physics_service.is_collision(bullet, boss):
+                boss._health -= 5
+                print(f"Boss hit!, Boss Health: {boss._health}")
+                player_bullets.remove(bullet)

@@ -10,4 +10,5 @@ class Boss(Actor):
     def __init__(self):
         super().__init__()
         self._type = "boss"
+        self._velocity = Point(2, 0)
     

@@ -27,7 +27,7 @@ class SpawnBossBulletsAction(Action):
         self.boss = cast["boss"][0]
         self.fire = 1
         self.frame = self.frame_counter.execute(cast)
-        print(f"frame count: {self.frame}")
+        #print(f"frame count: {self.frame}")
         
         if self.fire:
             if self.frame % self.fire_rate == 0:
@@ -36,15 +36,15 @@ class SpawnBossBulletsAction(Action):
                 bullet.set_width(BULLET_WIDTH)
                 bullet.set_height(BULLET_HEIGHT)
                 self.x = self.boss._position.get_x() + (BOSS_WIDTH / 2)
-                print(f"boss x = {self.x}")
+                #print(f"boss x = {self.x}")
                 self.y = self.boss._position.get_y() + BOSS_HEIGHT
-                print(f"boss y = {self.y}")
+                #print(f"boss y = {self.y}")
                 #self.x = MAX_X / 2
                 #self.y = MAX_Y / 2
                 position = bullet._position = Point(self.x, self.y)
                 bullet.set_position(position)
                 self.boss_bullets.append(bullet)
-                print("made new bullet")
+                #print("made new bullet")
                 num_bullets = len(self.boss_bullets)
-                print(f"Number of boss bullets {num_bullets}")
+                #print(f"Number of boss bullets {num_bullets}")
                 cast["boss_bullets"] = self.boss_bullets

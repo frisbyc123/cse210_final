@@ -27,8 +27,8 @@ class Director:
         self._cast = cast
         self._script = script
         self._keep_playing = True
-        self.player = Player()
-        self.boss = Boss()
+        self.player = cast["player_ship"][0]
+        self.boss = cast["boss"][0]
         
     def start_game(self):
         """Starts the game loop to control the sequence of play."""
@@ -37,12 +37,12 @@ class Director:
             self._cue_action("update")
             self._cue_action("output")
 
-            if self.player._health == 0:
+            if self.player._health <= 0:
                 self._keep_playing = False
             
-            if self.boss._health == 0:
+            if self.boss._health <= 0:
                 self._keep_playing = False
-
+                
             if raylibpy.window_should_close():
                 self._keep_playing = False
 

@@ -135,3 +135,6 @@ class Actor:
     def get_type(self):
         return self._type
     
+    def set_health(self, new_health):
+        self._health = new_health
+    

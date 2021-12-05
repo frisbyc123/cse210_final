@@ -42,4 +42,4 @@ class SpawnBulletsAction(Action):
                 #print("made new bullet")
                 num_bullets = len(self.bullets)
                 #print(f"Number of bullets {num_bullets}")
-                cast["bullets"] = self.bullets
+                cast["bullet"] = self.bullets

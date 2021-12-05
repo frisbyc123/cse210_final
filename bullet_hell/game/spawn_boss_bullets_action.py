@@ -77,7 +77,7 @@ class SpawnBossBulletsAction(Action):
                 bullet.set_position(position)
                 bullet._velocity = Point(10, 10)
                 self.boss_bullets.append(bullet)
-                
+
         if self.fire_three:
             if self.frame % self.fire_rate == 0:        
                 # Left Bullet
@@ -94,4 +94,4 @@ class SpawnBossBulletsAction(Action):
                 
                 num_bullets = len(self.boss_bullets)
                 #print(f"Number of boss bullets {num_bullets}")
-                cast["boss_bullets"] = self.boss_bullets
+                cast["boss_bullet"] = self.boss_bullets

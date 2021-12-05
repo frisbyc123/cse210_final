@@ -30,11 +30,15 @@ class HandleCollisionsAction(Action):
         for bullet in boss_bullets:
             if self._physics_service.is_collision(bullet, player):
                 player._health -= 10
-                print(f"Player hit!, Player Health: {player._health}")
+                print(f"Player hit! Player Health: {player._health}")
                 boss_bullets.remove(bullet)
 
         for bullet in player_bullets:
             if self._physics_service.is_collision(bullet, boss):
                 boss._health -= 5
-                print(f"Boss hit!, Boss Health: {boss._health}")
-                player_bullets.remove(bullet)
+                print(f"Boss hit! Boss Health: {boss._health}")
+                cast["bullet"].remove(bullet)
+
+        if self._physics_service.is_collision(player, boss):
+            player._health = 0
+            print(f"Player hit! Player Health: {player._health}")

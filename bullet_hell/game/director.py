@@ -2,6 +2,8 @@ from time import sleep
 
 import raylibpy
 from game import constants
+from game.player import Player
+from game.boss import Boss
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
@@ -25,6 +27,8 @@ class Director:
         self._cast = cast
         self._script = script
         self._keep_playing = True
+        self.player = Player()
+        self.boss = Boss()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play."""
@@ -32,6 +36,12 @@ class Director:
             self._cue_action("input")
             self._cue_action("update")
             self._cue_action("output")
+
+            if self.player._health == 0:
+                self._keep_playing = False
+            
+            if self.boss._health == 0:
+                self._keep_playing = False
 
             if raylibpy.window_should_close():
                 self._keep_playing = False

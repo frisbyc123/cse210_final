@@ -26,11 +26,27 @@ class SpawnBossBulletsAction(Action):
     def execute(self, cast):
         #self.input_service = InputService()
         self.boss = cast["boss"][0]
-        self.fire = random.randint(0, 1)
+
+        self.will_fire = random.randint(0, 10)
+        if self.will_fire % 2 == 0:
+            self.fire_one = 1
+        else:
+            self.fire_one = 0
+
+        if self.will_fire % 3 == 0:
+            self.fire_two = 1
+        else:
+            self.fire_two = 0
+
+        if self.will_fire % 4 == 0:
+            self.fire_three = 1
+        else:
+            self.fire_three = 0
+
         self.frame = self.frame_counter.execute(cast)
         #print(f"frame count: {self.frame}")
         
-        if self.fire:
+        if self.fire_one:
             if self.frame % self.fire_rate == 0:
                 # Center Bullet
                 bullet = EnemyBullet()
@@ -47,7 +63,9 @@ class SpawnBossBulletsAction(Action):
                 bullet.set_position(position)
                 bullet._velocity = Point(0, 10)
                 self.boss_bullets.append(bullet)
-                
+
+        if self.fire_two:
+            if self.frame % self.fire_rate == 0:
                 # Right Bullet
                 bullet = EnemyBullet()
                 bullet.set_image(IMAGE_BULLET)
@@ -60,6 +78,8 @@ class SpawnBossBulletsAction(Action):
                 bullet._velocity = Point(10, 10)
                 self.boss_bullets.append(bullet)
                 
+        if self.fire_three:
+            if self.frame % self.fire_rate == 0:        
                 # Left Bullet
                 bullet = EnemyBullet()
                 bullet.set_image(IMAGE_BULLET)

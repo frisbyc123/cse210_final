@@ -12,6 +12,7 @@ from game.constants import BULLET_HEIGHT, BULLET_WIDTH, MAX_X, MAX_Y
 from game.input_service import InputService
 from game.player import Player
 from game.frame_counter import FrameCounter
+from game.audio_service import AudioService
 import random
 
 class SpawnBossBulletsAction(Action):
@@ -20,8 +21,10 @@ class SpawnBossBulletsAction(Action):
         super().__init__()
         self.boss_bullets = []
         self.frame_counter = FrameCounter()
+        self.audio_service = AudioService()
         self.frame = 0
         self.fire_rate = 5
+        self.fire_pattern = 0
 
     def execute(self, cast):
         #self.input_service = InputService()
@@ -62,6 +65,7 @@ class SpawnBossBulletsAction(Action):
                 position = bullet._position = Point(self.x, self.y)
                 bullet.set_position(position)
                 bullet._velocity = Point(0, 10)
+                self.audio_service.play_sound(constants.SOUND_SHOOT)
                 self.boss_bullets.append(bullet)
 
         if self.fire_two:
@@ -76,6 +80,7 @@ class SpawnBossBulletsAction(Action):
                 position = bullet._position = Point(self.x, self.y)
                 bullet.set_position(position)
                 bullet._velocity = Point(10, 10)
+                self.audio_service.play_sound(constants.SOUND_SHOOT)
                 self.boss_bullets.append(bullet)
 
         if self.fire_three:
@@ -90,8 +95,20 @@ class SpawnBossBulletsAction(Action):
                 position = bullet._position = Point(self.x, self.y)
                 bullet.set_position(position)
                 bullet._velocity = Point(-10, 10)
+                self.audio_service.play_sound(constants.SOUND_SHOOT)
                 self.boss_bullets.append(bullet)
                 
                 num_bullets = len(self.boss_bullets)
                 #print(f"Number of boss bullets {num_bullets}")
                 cast["boss_bullet"] = self.boss_bullets
+        """if frame_counter % 360 == 0:
+            self.fire_pattern = random.randint(0, 3)
+            if self.fire_pattern == 0:
+                pass
+            elif self.fire_pattern == 1:
+                pass
+            elif self.fire_pattern == 2:
+                pass
+            elif self.fire_pattern == 3:
+                pass"""
+

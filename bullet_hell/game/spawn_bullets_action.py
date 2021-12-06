@@ -9,6 +9,7 @@ from game.constants import IMAGE_BULLET, BULLET_HEIGHT, BULLET_WIDTH, MAX_X, MAX
 from game.input_service import InputService
 from game.player import Player
 from game.frame_counter import FrameCounter
+from game.audio_service import AudioService
 
 class SpawnBulletsAction(Action):
     
@@ -16,6 +17,7 @@ class SpawnBulletsAction(Action):
         super().__init__()
         self.bullets = []
         self.frame_counter = FrameCounter()
+        self.audio_service = AudioService()
         self.frame = 0
         self.fire_rate = 10
 
@@ -29,6 +31,7 @@ class SpawnBulletsAction(Action):
         if self.fire:
             if self.frame % self.fire_rate == 0:
                 bullet = Bullet()
+                self.audio_service.play_sound(constants.SOUND_SHOOT)
                 bullet.set_image(IMAGE_BULLET)
                 bullet.set_width(BULLET_WIDTH)
                 bullet.set_height(BULLET_HEIGHT)

@@ -19,7 +19,7 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from game.frame_counter import FrameCounter
 from game.physics_service import PhysicsService
-#from game.audio_service import AudioService
+from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
 from game.player import Player
@@ -77,7 +77,7 @@ def main():
     input_service = InputService()
     output_service = OutputService()
     physics_service = PhysicsService()
-    #audio_service = AudioService()
+    audio_service = AudioService()
 
     move_actors_action = MoveActorsAction(output_service)
     handle_off_screen_action = HandleOffScreenAction()
@@ -96,13 +96,13 @@ def main():
 
     # Start the game
     output_service.open_window("Bullet Niflheim")
-    #audio_service.start_audio()
-    #audio_service.play_sound(constants.SOUND_START)
+    audio_service.start_audio()
+    #audio_service.play_sound(constants.SOUND_MUSIC)
     
     director = Director(cast, script)
     director.start_game()
 
-    #audio_service.stop_audio()
+    audio_service.stop_audio()
 
 if __name__ == "__main__":
     main()

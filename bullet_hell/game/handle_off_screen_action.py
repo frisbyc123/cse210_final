@@ -24,20 +24,24 @@ class HandleOffScreenAction(Action):
     def execute(self, cast):
         for group in cast.values():
             for actor in group:
+                #player bullet removal on screen sides
                 if actor.get_type() == "player_bullet":
                     if actor._position.get_x() < 0 or actor._position.get_x() > MAX_X:
                         group.remove(actor)
                     elif actor._position.get_y() < 0 or actor._position.get_y() > MAX_Y:
                         group.remove(actor)
+                #enemy bullet removal on screen sides
                 elif actor.get_type() == "enemy_bullet":
                     if actor._position.get_x() < 0 or actor._position.get_x() > MAX_X:
                         group.remove(actor)
                     elif actor._position.get_y() < 0 or actor._position.get_y() > MAX_Y:
                         group.remove(actor)
+                #boss edge detection.  Reverses the direction when touches an edge
                 if actor.get_type() == "boss":
                     if actor._position.get_x() < 0 or actor._position.get_x() + BOSS_WIDTH > MAX_X:
                         self.x_velocity = actor._velocity.get_x() * -1
                         actor._velocity = Point(self.x_velocity, 0)
+                #player edge detection.  Prevents the player from leaving window
                 if actor.get_type() == "player":
                     #Left Side
                     if actor._position.get_x() <= 0:

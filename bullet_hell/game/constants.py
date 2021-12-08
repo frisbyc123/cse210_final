@@ -12,6 +12,7 @@ IMAGE_PLAYER_SHIP = os.path.join(os.getcwd(), "./bullet_hell/assets/player_fille
 IMAGE_BOSS = os.path.join(os.getcwd(), "./bullet_hell/assets/boss_filler.png")
 IMAGE_BULLET = os.path.join(os.getcwd(), "./bullet_hell/assets/bullet_filler.png")
 IMAGE_ENEMY_BULLET = os.path.join(os.getcwd(), "./bullet_hell/assests/enemy_bullet_filler.png")
+IMAGE_BOMB = os.path.join(os.getcwd(), "./bullet_hell/assests/bomb_filler.png")
 
 SOUND_SHOOT = os.path.join(os.getcwd(), "./bullet_hell/assets/mixkit-short-laser-gun-shot-1670.wav")
 SOUND_MUSIC = os.path.join(os.getcwd(), "./batter/assets/game_music.wav")
@@ -39,3 +40,8 @@ BOSS_Y = MAX_Y / 10
 BULLET_WIDTH = 10
 BULLET_HEIGHT = 10
 BULLET_SPEED = 10
+
+# Bomb Constants
+BOMB_WIDTH = 7
+BOMB_HEIGHT = 7
+BOMB_SPEED = 5

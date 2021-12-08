@@ -56,6 +56,8 @@ def main():
     cast["bullet"] = []
 
     cast["boss_bullet"] = []
+
+    cast["bomb"] = []
     
     cast["player_ship"] = []
     # TODO: Create a player ship here and add it to the list

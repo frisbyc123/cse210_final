@@ -28,6 +28,7 @@ class HandleCollisionsAction(Action):
         self.boss = cast["boss"][0]
         self.player_bullets = cast["bullet"]
         self.boss_bullets = cast["boss_bullet"]
+        self.bombs = cast["bomb"]
 
         for bullet in self.boss_bullets:
             if self._physics_service.is_collision(bullet, self.player):
@@ -44,3 +45,8 @@ class HandleCollisionsAction(Action):
         if self._physics_service.is_collision(self.player, self.boss):
             self.player._health = 0
             print(f"Player hit! Player Health: {self.player._health}")
+        
+        for bomb in self.bombs:
+            if self._physics_service.is_collision(bomb, self.player):
+                self.player._health -= 160
+                print(f"Player hit! Player Health: {self.player._health}")

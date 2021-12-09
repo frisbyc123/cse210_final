@@ -8,11 +8,12 @@ DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_PLAYER_SHIP = os.path.join(os.getcwd(), "./bullet_hell/assets/player_filler.png")
-IMAGE_BOSS = os.path.join(os.getcwd(), "./bullet_hell/assets/boss_filler.png")
+IMAGE_PLAYER_SHIP = os.path.join(os.getcwd(), "./bullet_hell/assets/player.png")
+IMAGE_BOSS = os.path.join(os.getcwd(), "./bullet_hell/assets/boss.png")
 IMAGE_BULLET = os.path.join(os.getcwd(), "./bullet_hell/assets/bullet_filler.png")
 IMAGE_ENEMY_BULLET = os.path.join(os.getcwd(), "./bullet_hell/assests/enemy_bullet_filler.png")
 IMAGE_BOMB = os.path.join(os.getcwd(), "./bullet_hell/assests/bomb_filler.png")
+IMAGE_BACKGROUND = os.path.join(os.getcwd(), "./bullet_hell/assests/backgroundLow.png")
 
 SOUND_SHOOT = os.path.join(os.getcwd(), "./bullet_hell/assets/mixkit-short-laser-gun-shot-1670.wav")
 SOUND_MUSIC = os.path.join(os.getcwd(), "./batter/assets/game_music.wav")
@@ -45,3 +46,8 @@ BULLET_SPEED = 10
 BOMB_WIDTH = 7
 BOMB_HEIGHT = 7
 BOMB_SPEED = 5
+
+BACKGROUND_WIDTH = MAX_X
+BACKGROUND_HEIGHT = MAX_Y
+BACKGROUND_X = MAX_X / 2
+BACKGROUND_Y = MAX_Y / 2

@@ -34,7 +34,7 @@ class OutputService:
             self (OutputService): An instance of OutputService.
         """ 
         raylibpy.begin_drawing()
-        raylibpy.clear_background(raylibpy.BLACK)
+        raylibpy.clear_background(raylibpy.WHITE)
 
     def draw_box(self, x, y, width, height):
         """
@@ -63,7 +63,7 @@ class OutputService:
             self._textures[image] = loaded
 
         texture = self._textures[image]
-        raylibpy.draw_texture(texture, x, y, raylibpy.WHITE)
+        raylibpy.draw_texture(texture, x, y, raylibpy.SKYBLUE)
 
     def draw_actor(self, actor):
         """Renders the given actor's text on the screen.

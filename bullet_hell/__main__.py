@@ -1,18 +1,14 @@
 import os
-from game import spawn_boss_bullets_action
+from game.constants import SOUND_MUSIC
 from game.spawn_bullets_action import SpawnBulletsAction
 from game.spawn_boss_bullets_action import SpawnBossBulletsAction
-from game.constants import BULLET_HEIGHT, BULLET_WIDTH, IMAGE_BULLET, MAX_X, MAX_Y
 from game.constants import BOSS_HEIGHT, BOSS_WIDTH, BOSS_X, BOSS_Y
 from game.constants import IMAGE_BOSS, PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_X, PLAYER_Y
 from game.constants import IMAGE_PLAYER_SHIP
 
 os.environ['RAYLIB_BIN_PATH'] = "."
 
-import random
-from game import constants
 from game.director import Director
-from game.actor import Actor
 from game.point import Point
 from game.draw_actors_action import DrawActorsAction
 from game.input_service import InputService
@@ -21,22 +17,19 @@ from game.frame_counter import FrameCounter
 from game.physics_service import PhysicsService
 from game.audio_service import AudioService
 
-# TODO: Add imports similar to the following when you create these classes
 from game.player import Player
 from game.boss import Boss
-from game.bullet import Bullet
 from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.handle_off_screen_action import HandleOffScreenAction
 from game.move_actors_action import MoveActorsAction
 
 def main():
-
-    # create the cast {key: tag, value: list}
+    # Initialize the Cast
     cast = {}
 
+    # Create the boss here and add it to the list
     cast["boss"] = []
-    # Create the boss here and add them to the list
     bosses = []
     boss = Boss()
     boss.set_image(IMAGE_BOSS)
@@ -49,18 +42,18 @@ def main():
 
 
     cast["enemy"] = []
-    # Create enemies here and add them to the list
+    # Initialize enemies
     enemies = []   
     cast["enemy"] = enemies
 
+    # Initialize different bullet types
     cast["bullet"] = []
-
     cast["boss_bullet"] = []
-
     cast["bomb"] = []
-    
+
+    # Create a player ship here and add it to the list
     cast["player_ship"] = []
-    # TODO: Create a player ship here and add it to the list
+    
 
     player_ships = []
     player_ship = Player()
@@ -90,8 +83,7 @@ def main():
     spawn_boss_bullets_action = SpawnBossBulletsAction()
     handle_collisions_action = HandleCollisionsAction(physics_service)
 
-    # TODO: Create additional actions here and add them to the script
-
+    # Running each action
     script["input"] = [control_actors_action]
     script["update"] = [move_actors_action, spawn_bullets_action, frame_counter, spawn_boss_bullets_action, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
@@ -99,7 +91,7 @@ def main():
     # Start the game
     output_service.open_window("Bullet Niflheim")
     audio_service.start_audio()
-    #audio_service.play_sound(constants.SOUND_MUSIC)
+    audio_service.play_sound(SOUND_MUSIC)
     
     director = Director(cast, script)
     director.start_game()

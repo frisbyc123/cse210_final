@@ -11,5 +11,5 @@ class Boss(Actor):
         super().__init__()
         self._type = "boss"
         self._velocity = Point(2, 0)
-        self._health = 500
+        self._health = 1000
     

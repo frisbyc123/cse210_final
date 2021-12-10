@@ -16,7 +16,8 @@ IMAGE_BOMB = os.path.join(os.getcwd(), "./bullet_hell/assests/bomb_filler.png")
 IMAGE_BACKGROUND = os.path.join(os.getcwd(), "./bullet_hell/assests/backgroundLow.png")
 
 SOUND_SHOOT = os.path.join(os.getcwd(), "./bullet_hell/assets/mixkit-short-laser-gun-shot-1670.wav")
-SOUND_MUSIC = os.path.join(os.getcwd(), "./batter/assets/game_music.wav")
+SOUND_EXPLOSTION = os.path.join(os.getcwd(), "./bullet_hell/assets/mixkit-arcade-game-explosion-2759.wav")
+SOUND_MUSIC = os.path.join(os.getcwd(), "./bullet_hell/assets/Komiku_-_07_-_Battle_of_Pogs.wav")
 
 SOUND_BOUNCE = os.path.join(os.getcwd(), "./batter/assets/boing.wav")
 SOUND_OVER = os.path.join(os.getcwd(), "./batter/assets/over.wav")

@@ -1,3 +1,4 @@
+from game.constants import SOUND_EXPLOSTION
 from game.constants import IMAGE_BOMB
 from game.constants import IMAGE_BULLET
 from game.constants import IMAGE_ENEMY_BULLET
@@ -135,7 +136,7 @@ class SpawnBossBulletsAction(Action):
        # I'm sure there is a better way of doing this, but
        # this was a simple way of doing it.
         elif self.fire_pattern == 3:
-            if self.frame % 90 == 0:
+            if self.frame % 45 == 0:
                 self.fire = 1
                 if self.fire:
                     print("Made a new bomb")
@@ -155,6 +156,9 @@ class SpawnBossBulletsAction(Action):
                 self.current_bomb = self.bombs[0]
                 self.current_bomb._timer += 1
                 if self.current_bomb._timer == 45:
+
+                        self.audio_service.play_sound(SOUND_EXPLOSTION)
+                        
                         # Right Bullet in Burst
                         bullet = EnemyBullet()
                         bullet.set_image(IMAGE_BULLET)

@@ -106,7 +106,7 @@ def main():
     # Start the game
     output_service.open_window("Bullet Niflheim")
     audio_service.start_audio()
-    #audio_service.play_sound(SOUND_MUSIC)
+    audio_service.play_sound(SOUND_MUSIC)
     
     director = Director(cast, script)
     director.start_game()

@@ -1,7 +1,3 @@
-https://github.com/frisbyc123/cse210_final
-
-I definitely met the requirements, but I think I exceeded them a little.  It starts without error, all of my top priority features are in the game, many lower priority features are implemented, and I made graphics and found music and sound effects for the game.  
-
 Abstraction is taking a large chunk of code and making it smaller.  In our case, we split everything up into classes that each do something unique.  I used abstraction by having everything in a separate class that could be called.  I also had all of the actors in a separate part of the cast.
 Encapsulation is taking variables in a class and making them private, so only the methods in that class can access the variables.  I used Encapsulation by having getters and setters for the actors in my cast.
 Inheritance allows us to make a new class that has the same methods as another class without needing to rewrite all of the methods in each class individually.   I used Inheritance by having some classes inherit from others like my player ship, boss, and bullets inherited from actor
